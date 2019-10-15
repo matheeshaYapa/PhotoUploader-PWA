@@ -1,5 +1,9 @@
 var deferredPrompt;
 
+if (!window.Promise) {
+    window.Promise = Promise;
+}
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('/sw.js')
@@ -25,6 +29,22 @@ var promise = new Promise(function (resolve, reject) {
         // console.log('After 3 seconds');
     }, 3000);
 });
+
+// ajax query
+// can't use in service workers
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://httpbin.org/ip');
+xhr.responseType = 'json';
+
+xhr.onload = function () {
+    console.log(xhr.response);
+};
+
+xhr.onerror = function () {
+    console.log('Error!');
+};
+
+xhr.send();
 
 fetch('http://httpbin.org/ip')
     .then(function (response) {
