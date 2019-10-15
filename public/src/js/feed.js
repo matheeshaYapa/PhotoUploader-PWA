@@ -36,7 +36,7 @@ function createCard() {
 
   var cardTitle = document.createElement('div');
   cardTitle.className = 'mdl-card__title';
-  cardTitle.style.backgroundImage = 'url("/src/images/sf-boat.jpg")';
+  cardTitle.style.backgroundImage = 'url("src/images/sf-boat.jpg")';
   cardTitle.style.backgroundSize = 'cover';
   cardTitle.style.height = '180px';
 
@@ -60,10 +60,10 @@ function createCard() {
   shardMomentsArea.appendChild(cardWrapper);
 }
 
-fetch('http://httpbin.org/get')
+fetch('https://httpbin.org/get')
     .then(function (res) {
       return res.json();
     })
-    .then(function () {
+    .then(function (data) {
       createCard();
     });

@@ -22,63 +22,63 @@ window.addEventListener('beforeinstallprompt', function (event) {
     return false;
 });
 
-var promise = new Promise(function (resolve, reject) {
-    setTimeout(function () {
-        // resolve('After timer is done');
-        reject({code: 500, message: 'An error occurred!'});
-        // console.log('After 3 seconds');
-    }, 3000);
-});
+// var promise = new Promise(function (resolve, reject) {
+//     setTimeout(function () {
+//         // resolve('After timer is done');
+//         reject({code: 500, message: 'An error occurred!'});
+//         // console.log('After 3 seconds');
+//     }, 3000);
+// });
 
 // ajax query
 // can't use in service workers
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://httpbin.org/ip');
-xhr.responseType = 'json';
+// var xhr = new XMLHttpRequest();
+// xhr.open('GET', 'http://httpbin.org/ip');
+// xhr.responseType = 'json';
+//
+// xhr.onload = function () {
+//     console.log(xhr.response);
+// };
+//
+// xhr.onerror = function () {
+//     console.log('Error!');
+// };
 
-xhr.onload = function () {
-    console.log(xhr.response);
-};
+// xhr.send();
 
-xhr.onerror = function () {
-    console.log('Error!');
-};
-
-xhr.send();
-
-fetch('http://httpbin.org/ip')
-    .then(function (response) {
-        console.log(response);
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function (err) {
-        console.log(err)
-    });
-
-fetch('http://httpbin.org/post', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    },
-    mode: 'cors',
-    body: JSON.stringify({
-        message: 'Does this work?'
-    })
-})
-    .then(function (response) {
-        console.log(response);
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function (err) {
-        console.log(err)
-    });
+// fetch('http://httpbin.org/ip')
+//     .then(function (response) {
+//         console.log(response);
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         console.log(data);
+//     })
+//     .catch(function (err) {
+//         console.log(err)
+//     });
+//
+// fetch('http://httpbin.org/post', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//     },
+//     mode: 'cors',
+//     body: JSON.stringify({
+//         message: 'Does this work?'
+//     })
+// })
+//     .then(function (response) {
+//         console.log(response);
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         console.log(data);
+//     })
+//     .catch(function (err) {
+//         console.log(err)
+//     });
 
 // promise.then(function (text) {
 //     return text;
@@ -88,12 +88,12 @@ fetch('http://httpbin.org/post', {
 //     console.log(newText)
 // });
 
-promise.then(function (text) {
-    return text;
-}).then(function (newText) {
-    console.log(newText)
-}).catch(function (err) {
-    console.log(err.code, err.message)
-});
-
-console.log('Right after setTimeout()');
+// promise.then(function (text) {
+//     return text;
+// }).then(function (newText) {
+//     console.log(newText)
+// }).catch(function (err) {
+//     console.log(err.code, err.message)
+// });
+//
+// console.log('Right after setTimeout()');
